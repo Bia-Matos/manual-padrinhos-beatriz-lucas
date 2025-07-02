@@ -1,24 +1,28 @@
+import React from 'react'
 import Image from 'next/image'
-import { Palette, Shirt, Users } from 'lucide-react'
+import { Palette, Users } from 'lucide-react'
 
 export default function DressCode() {
   const colorPalette = [
-    { name: 'Rosa Antigo', color: '#D4A574', description: 'Cor principal para madrinhas' },
-    { name: 'Dourado', color: '#F4D03F', description: 'Detalhes e acessórios' },
-    { name: 'Verde Sage', color: '#9CAF88', description: 'Alternativa elegante' },
-    { name: 'Nude/Bege', color: '#E8D7C3', description: 'Tons neutros' },
+    { color: '#F24CA5' }, // Rosa claro
+    { color: '#ED2A94' }, // Rosa médio  
+    { color: '#FF1493' }, // Rosa escuro
   ]
 
   return (
     <section className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
       <div className="container-max section-padding">
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            Dress Code
-          </h2>
+          <div className="flex items-center justify-center mb-6">
+            <Users className="w-8 h-8 mr-3" style={{ color: '#D1006F' }} />
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800">
+              Queridas Madrinhas
+            </h2>
+          </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Para que tudo fique harmonioso e lindo nas fotos, preparamos algumas 
-            orientações sobre as cores e estilos para nossos padrinhos e madrinhas.
+            Vocês me conhecem bem e sabem que não poderia ser outra cor! 💕
+            Ver vocês vestidas com a minha cor preferida, no dia mais especial da minha vida, vai ser um presente enorme.
+            Tenho certeza de que cada uma ficará maravilhosa e que juntas vamos formar um cenário inesquecível!
           </p>
         </div>
 
@@ -31,114 +35,150 @@ export default function DressCode() {
             </h3>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex justify-center gap-8 mb-8">
             {colorPalette.map((color, index) => (
               <div key={index} className="text-center">
                 <div 
-                  className="w-24 h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-white"
+                  className="w-24 h-24 rounded-full shadow-lg border-4 border-white"
                   style={{ backgroundColor: color.color }}
                 ></div>
-                <h4 className="font-semibold text-gray-800 mb-2">{color.name}</h4>
-                <p className="text-sm text-gray-600">{color.description}</p>
               </div>
             ))}
           </div>
+          
+
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Madrinhas */}
-          <div className="space-y-8">
-            <div className="flex items-center mb-6">
-              <Users className="w-8 h-8 mr-3" style={{ color: '#D1006F' }} />
-              <h3 className="font-display text-3xl font-semibold text-gray-800">
-                Para as Madrinhas
-              </h3>
-            </div>
-
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-xl mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1587&q=80"
-                alt="Vestidos das madrinhas"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="space-y-4">
-              <div className="p-6 rounded-lg" style={{ backgroundColor: '#fdf2f8' }}>
-                <h4 className="font-semibold mb-3" style={{ color: '#D1006F' }}>Cores Preferidas:</h4>
-                <ul className="space-y-2" style={{ color: '#D1006F' }}>
-                  <li>• Rosa antigo (cor principal)</li>
-                  <li>• Dourado/champagne</li>
-                  <li>• Verde sage</li>
-                  <li>• Nude/bege</li>
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-lg" style={{ backgroundColor: '#F5F0E8' }}>
-                <h4 className="font-semibold text-gray-800 mb-3">Sugestões de Look:</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Vestidos midi ou longos</li>
-                  <li>• Tecidos fluidos e elegantes</li>
-                  <li>• Acessórios dourados</li>
-                  <li>• Sapatos confortáveis (cerimônia em pé)</li>
-                </ul>
-              </div>
-            </div>
+        {/* Tons Corretos */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="font-display text-3xl font-semibold text-gray-800 mb-4">
+              ✅ Tons Perfeitos
+            </h3>
+            <p className="text-lg text-gray-600">
+              Estes são os tons ideais que combinam perfeitamente com nossa paleta!
+            </p>
           </div>
-
-          {/* Padrinhos */}
-          <div className="space-y-8">
-            <div className="flex items-center mb-6">
-              <Shirt className="w-8 h-8 mr-3" style={{ color: '#D1006F' }} />
-              <h3 className="font-display text-3xl font-semibold text-gray-800">
-                Para os Padrinhos
-              </h3>
-            </div>
-
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-xl mb-6">
-              <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1587&q=80"
-                alt="Trajes dos padrinhos"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="space-y-4">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h4 className="font-semibold text-blue-800 mb-3">Traje Sugerido:</h4>
-                <ul className="space-y-2 text-blue-700">
-                  <li>• Terno azul marinho ou cinza escuro</li>
-                  <li>• Camisa branca ou azul claro</li>
-                  <li>• Gravata ou gravata borboleta</li>
-                  <li>• Sapatos sociais pretos ou marrom</li>
-                </ul>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="relative group">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1566479179817-c7a30ef9f419?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom correto 1"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-
-              <div className="p-6 rounded-lg" style={{ backgroundColor: '#F5F0E8' }}>
-                <h4 className="font-semibold text-gray-800 mb-3">Detalhes Importantes:</h4>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Gravatas podem ser em tons dourados</li>
-                  <li>• Evitar cores muito chamativas</li>
-                  <li>• Sapatos confortáveis</li>
-                  <li>• Relógio e acessórios discretos</li>
-                </ul>
+            </div>
+            
+            <div className="relative group">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom correto 2"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+            
+            <div className="relative group">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1582032700751-8ca3e16beab5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom correto 3"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+            
+            <div className="relative group">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom correto 4"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Important Note */}
-        <div className="mt-16 bg-gradient-to-r from-rose-50 to-gold-50 p-8 rounded-lg border border-rose-200">
+        {/* Tons Incorretos */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h3 className="font-display text-3xl font-semibold text-gray-800 mb-4">
+              ❌ Tons a Evitar
+            </h3>
+            <p className="text-lg text-gray-600">
+              Estes tons podem não harmonizar com nossa paleta de cores
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="relative group opacity-75">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom incorreto 1"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300 grayscale"
+                />
+                <div className="absolute inset-0 bg-red-500 bg-opacity-20"></div>
+              </div>
+            </div>
+            
+            <div className="relative group opacity-75">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1566479179817-c7a30ef9f419?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom incorreto 2"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300 grayscale"
+                />
+                <div className="absolute inset-0 bg-red-500 bg-opacity-20"></div>
+              </div>
+            </div>
+            
+            <div className="relative group opacity-75">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom incorreto 3"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300 grayscale"
+                />
+                <div className="absolute inset-0 bg-red-500 bg-opacity-20"></div>
+              </div>
+            </div>
+            
+            <div className="relative group opacity-75">
+              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src="https://images.unsplash.com/photo-1566479179817-c7a30ef9f419?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Tom incorreto 4"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300 grayscale"
+                />
+                <div className="absolute inset-0 bg-red-500 bg-opacity-20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Final Message */}
+        <div className="mt-16 p-8 rounded-lg border-l-4" style={{ backgroundColor: '#fdf2f8', borderLeftColor: '#D1006F' }}>
           <div className="text-center">
-            <h4 className="font-display text-2xl font-semibold text-gray-800 mb-4">
-              Lembrete Especial
+            <h4 className="font-display text-2xl font-semibold mb-4" style={{ color: '#D1006F' }}>
+              Com Amor, para Vocês ✨
             </h4>
-            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              O mais importante é que vocês se sintam confortáveis e bonitos! 
-              Estas são apenas sugestões para harmonizar o visual. Se tiverem dúvidas 
-              sobre alguma peça específica, não hesitem em nos perguntar. 💕
+            <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#D1006F' }}>
+              O mais importante é que vocês se sintam lindas e confortáveis! Estas são apenas 
+              sugestões para harmonizar as fotos. Se tiverem dúvidas sobre alguma peça específica, 
+              não hesitem em nos chamar. Vocês são especiais demais! 💕
             </p>
           </div>
         </div>
