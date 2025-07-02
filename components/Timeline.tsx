@@ -139,11 +139,11 @@ export default function Timeline() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 p-8 rounded-lg border-l-4 border-gray-400">
-            <h4 className="font-display text-xl font-semibold text-gray-700 mb-4">
+          <div className="p-8 rounded-lg border-l-4" style={{ backgroundColor: '#F5F0E8', borderLeftColor: '#D1006F' }}>
+            <h4 className="font-display text-xl font-semibold mb-4" style={{ color: '#D1006F' }}>
               Informações Importantes
             </h4>
-            <ul className="space-y-2 text-gray-600">
+            <ul className="space-y-2" style={{ color: '#D1006F' }}>
               <li>• Haverá transporte entre os locais</li>
               <li>• Bar aberto durante toda a festa</li>
               <li>• Cardápio vegetariano disponível</li>

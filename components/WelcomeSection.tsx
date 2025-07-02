@@ -32,8 +32,8 @@ export default function WelcomeSection() {
             
             <div className="p-6 rounded-lg border-l-4" style={{ backgroundColor: '#fdf2f8', borderLeftColor: '#D1006F' }}>
               <p className="italic" style={{ color: '#D1006F' }}>
-                "Um casamento não é apenas a união de duas pessoas, mas a celebração 
-                de uma comunidade de amor que nos cerca e nos apoia."
+                "O valor das coisas não está no tempo que elas duram, mas na intensidade com que acontecem.
+                Por isso existem momentos inesquecíveis,coisas inexplicáveis e pessoas incomparáveis."
               </p>
             </div>
           </div>
@@ -42,8 +42,8 @@ export default function WelcomeSection() {
           <div className="relative">
             <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1587&q=80"
-                alt="Casal feliz"
+                src="/images/casal.jpeg"
+                alt="Beatriz & Lucas - Foto do casal"
                 fill
                 className="object-cover"
               />

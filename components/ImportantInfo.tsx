@@ -146,12 +146,12 @@ export default function ImportantInfo() {
         </div>
 
         {/* Weather Info */}
-        <div className="mt-8 bg-gold-50 border-l-4 border-gold-500 p-8 rounded-lg">
-          <h4 className="font-display text-xl font-semibold text-gold-800 mb-3">
+        <div className="mt-8 border-l-4 p-8 rounded-lg" style={{ backgroundColor: '#F5F0E8', borderLeftColor: '#D1006F' }}>
+          <h4 className="font-display text-xl font-semibold mb-3" style={{ color: '#D1006F' }}>
             Previsão do Tempo
           </h4>
-          <p className="text-gold-700">
-            <strong>Junho em São Paulo:</strong> Temperatura média de 15-20°C. 
+          <p style={{ color: '#D1006F' }}>
+            <strong>Abril em São Paulo:</strong> Temperatura média de 18-25°C. 
             Recomendamos levar um casaquinho para o final da noite. 
             Baixa probabilidade de chuva, mas o local é coberto! ☀️
           </p>

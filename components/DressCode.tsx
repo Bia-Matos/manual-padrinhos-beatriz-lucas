@@ -75,7 +75,7 @@ export default function DressCode() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="p-6 rounded-lg" style={{ backgroundColor: '#F5F0E8' }}>
                 <h4 className="font-semibold text-gray-800 mb-3">Sugestões de Look:</h4>
                 <ul className="space-y-2 text-gray-600">
                   <li>• Vestidos midi ou longos</li>
@@ -116,7 +116,7 @@ export default function DressCode() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="p-6 rounded-lg" style={{ backgroundColor: '#F5F0E8' }}>
                 <h4 className="font-semibold text-gray-800 mb-3">Detalhes Importantes:</h4>
                 <ul className="space-y-2 text-gray-600">
                   <li>• Gravatas podem ser em tons dourados</li>
