@@ -1,3 +1,4 @@
+import React from 'react'
 import { Clock, Calendar, MapPin, Camera, Utensils, Music } from 'lucide-react'
 
 export default function Timeline() {
@@ -125,32 +126,7 @@ export default function Timeline() {
           </div>
         </div>
 
-        {/* Important Notes */}
-        <div className="mt-16 grid md:grid-cols-2 gap-8">
-          <div className="p-8 rounded-lg border-l-4" style={{ backgroundColor: '#fdf2f8', borderLeftColor: '#D1006F' }}>
-            <h4 className="font-display text-xl font-semibold mb-4" style={{ color: '#D1006F' }}>
-              Para os Padrinhos
-            </h4>
-            <ul className="space-y-2" style={{ color: '#D1006F' }}>
-              <li>• Cheguem 30 min antes da cerimônia</li>
-              <li>• Participem da sessão de fotos após a cerimônia</li>
-              <li>• Ajudem a receber os convidados</li>
-              <li>• Divirtam-se conosco! 🎉</li>
-            </ul>
-          </div>
 
-          <div className="p-8 rounded-lg border-l-4" style={{ backgroundColor: '#F5F0E8', borderLeftColor: '#D1006F' }}>
-            <h4 className="font-display text-xl font-semibold mb-4" style={{ color: '#D1006F' }}>
-              Informações Importantes
-            </h4>
-            <ul className="space-y-2" style={{ color: '#D1006F' }}>
-              <li>• Haverá transporte entre os locais</li>
-              <li>• Bar aberto durante toda a festa</li>
-              <li>• Cardápio vegetariano disponível</li>
-              <li>• Estacionamento gratuito no local</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
   )
