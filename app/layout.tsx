@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Header from '@/components/Header'
 
 export const metadata: Metadata = {
   title: 'Manual dos Padrinhos - Casamento B&L',
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="antialiased text-gray-800" style={{ backgroundColor: '#F5F0E8' }}>
-        {children}
+        <Header />
+        <div className="pt-20">
+          {children}
+        </div>
       </body>
     </html>
   )

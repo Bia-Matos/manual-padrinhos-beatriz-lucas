@@ -1,16 +1,8 @@
-"use client"
-
 import React from 'react'
 import Image from 'next/image'
-import { Palette, Users, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Palette, Users } from 'lucide-react'
 
 export default function DressCode() {
-  const [currentCorrectIndex, setCurrentCorrectIndex] = React.useState(0)
-  const [currentWrongIndex, setCurrentWrongIndex] = React.useState(0)
-  const [currentGroomsIndex, setCurrentGroomsIndex] = React.useState(0)
-  const [touchStart, setTouchStart] = React.useState(0)
-  const [touchEnd, setTouchEnd] = React.useState(0)
-  
   const colorPalette = [
     { color: '#F24CA5' }, // Rosa claro
     { color: '#FF1493' }, // Rosa médio  
@@ -18,53 +10,28 @@ export default function DressCode() {
   ]
 
   const correctImages = [
-    { src: '/images/tom_certo1.jpg', alt: 'Tom correto 1' },
-    { src: '/images/tom_certo2.jpg', alt: 'Tom correto 2' },
-    { src: '/images/tom_certo3.webp', alt: 'Tom correto 3' },
     { src: '/images/tom_correto4.jpeg', alt: 'Tom correto 4' },
+    { src: '/images/tom_certo3.webp', alt: 'Tom correto 3' },
+    { src: '/images/tom_certo2.jpg', alt: 'Tom correto 2' },
+    { src: '/images/tom_certo1.jpg', alt: 'Tom correto 1' },
   ]
 
   const wrongImages = [
-    { src: '/images/tom_errado.jpeg', alt: 'Tom incorreto 1' },
-    { src: '/images/tom_errado2.jpeg', alt: 'Tom incorreto 2' },
     { src: '/images/tons_errados_3.jpg', alt: 'Tom incorreto 3' },
+    { src: '/images/tom_errado2.jpeg', alt: 'Tom incorreto 2' },
+    { src: '/images/tom_errado.jpeg', alt: 'Tom incorreto 1' },
     { src: '/images/tons_errados_4.jpg', alt: 'Tom incorreto 4' },
   ]
 
   const groomsImages = [
-    { src: '/images/padrinhos1.jpeg', alt: 'Look padrinho 1' },
-    { src: '/images/padrinhos2.jpeg', alt: 'Look padrinho 2' },
-    { src: '/images/padrinhos3.jpeg', alt: 'Look padrinho 3' },
     { src: '/images/padrinhos4.jpeg', alt: 'Look padrinho 4' },
+    { src: '/images/padrinhos1.jpeg', alt: 'Look padrinho 1' },
+    { src: '/images/padrinhos3.jpeg', alt: 'Look padrinho 3' },
+    { src: '/images/padrinhos2.jpeg', alt: 'Look padrinho 2' },
   ]
 
-  const minSwipeDistance = 50
-
-  const onTouchStart = (e: any) => {
-    setTouchEnd(0) // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX)
-  }
-
-  const onTouchMove = (e: any) => setTouchEnd(e.targetTouches[0].clientX)
-
-  const handleSwipe = (images: any[], currentIndex: number, setCurrentIndex: any) => {
-    if (!touchStart || !touchEnd) return
-    const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > minSwipeDistance
-    const isRightSwipe = distance < -minSwipeDistance
-
-    if (isLeftSwipe) {
-      // Swipe left -> next image
-      setCurrentIndex((prev: number) => (prev === images.length - 1 ? 0 : prev + 1))
-    }
-    if (isRightSwipe) {
-      // Swipe right -> previous image
-      setCurrentIndex((prev: number) => (prev === 0 ? images.length - 1 : prev - 1))
-    }
-  }
-
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
+    <section id="dresscode" className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
@@ -130,37 +97,25 @@ export default function DressCode() {
             ))}
           </div>
 
-          {/* Mobile Carousel */}
+          {/* Mobile Horizontal Scroll */}
           <div className="md:hidden">
-            <div className="relative max-w-sm mx-auto">
-              <div 
-                className="relative h-96 rounded-lg overflow-hidden shadow-lg"
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={() => handleSwipe(correctImages, currentCorrectIndex, setCurrentCorrectIndex)}
-              >
-                <Image
-                  src={correctImages[currentCorrectIndex].src}
-                  alt={correctImages[currentCorrectIndex].alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              
-              {/* Indicators */}
-              <div className="flex justify-center mt-4 gap-2">
-                {correctImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentCorrectIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentCorrectIndex ? 'bg-pink-500' : 'bg-gray-300'
-                    }`}
-                    style={{ backgroundColor: index === currentCorrectIndex ? '#D1006F' : '#D1D5DB' }}
-                  />
-                ))}
-              </div>
+            <div className="flex gap-4 overflow-x-scroll pb-4 px-4 scrollbar-hide" style={{ overflowX: 'scroll' }}>
+              {correctImages.map((image, index) => (
+                <div key={index} className="flex-shrink-0" style={{ width: '280px', minWidth: '280px' }}>
+                  <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ height: '380px' }}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
+            <p className="text-center text-sm text-gray-500 mt-2">
+              👆 Deslize para ver mais imagens
+            </p>
           </div>
         </div>
 
@@ -191,37 +146,25 @@ export default function DressCode() {
             ))}
           </div>
 
-          {/* Mobile Carousel */}
+          {/* Mobile Horizontal Scroll */}
           <div className="md:hidden">
-            <div className="relative max-w-sm mx-auto">
-              <div 
-                className="relative h-96 rounded-lg overflow-hidden shadow-lg"
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={() => handleSwipe(wrongImages, currentWrongIndex, setCurrentWrongIndex)}
-              >
-                <Image
-                  src={wrongImages[currentWrongIndex].src}
-                  alt={wrongImages[currentWrongIndex].alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              
-              {/* Indicators */}
-              <div className="flex justify-center mt-4 gap-2">
-                {wrongImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentWrongIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentWrongIndex ? 'bg-pink-500' : 'bg-gray-300'
-                    }`}
-                    style={{ backgroundColor: index === currentWrongIndex ? '#D1006F' : '#D1D5DB' }}
-                  />
-                ))}
-              </div>
+            <div className="flex gap-4 overflow-x-scroll pb-4 px-4 scrollbar-hide" style={{ overflowX: 'scroll' }}>
+              {wrongImages.map((image, index) => (
+                <div key={index} className="flex-shrink-0" style={{ width: '280px', minWidth: '280px' }}>
+                  <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ height: '380px' }}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
+            <p className="text-center text-sm text-gray-500 mt-2">
+              👆 Deslize para ver mais imagens
+            </p>
           </div>
         </div>
 
@@ -280,56 +223,46 @@ export default function DressCode() {
               ))}
             </div>
 
-            {/* Mobile Carousel */}
+            {/* Mobile Horizontal Scroll */}
             <div className="md:hidden">
-              <div className="relative max-w-sm mx-auto">
-                <div 
-                  className="relative h-96 rounded-lg overflow-hidden shadow-lg"
-                  onTouchStart={onTouchStart}
-                  onTouchMove={onTouchMove}
-                  onTouchEnd={() => handleSwipe(groomsImages, currentGroomsIndex, setCurrentGroomsIndex)}
-                >
-                  <Image
-                    src={groomsImages[currentGroomsIndex].src}
-                    alt={groomsImages[currentGroomsIndex].alt}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                
-                {/* Indicators */}
-                <div className="flex justify-center mt-4 gap-2">
-                  {groomsImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentGroomsIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-colors ${
-                        index === currentGroomsIndex ? 'bg-pink-500' : 'bg-gray-300'
-                      }`}
-                      style={{ backgroundColor: index === currentGroomsIndex ? '#D1006F' : '#D1D5DB' }}
-                    />
-                  ))}
-                </div>
+              <div className="flex gap-4 overflow-x-scroll pb-4 px-4 scrollbar-hide" style={{ overflowX: 'scroll' }}>
+                {groomsImages.map((image, index) => (
+                  <div key={index} className="flex-shrink-0" style={{ width: '280px', minWidth: '280px' }}>
+                    <div className="relative rounded-lg overflow-hidden shadow-lg" style={{ height: '380px' }}>
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        fill
+                        className={`object-cover ${
+                          image.src.includes('padrinhos3') ? 'object-contain' : 'object-cover'
+                        }`}
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
+              <p className="text-center text-sm text-gray-500 mt-2">
+                👆 Deslize para ver mais imagens
+              </p>
             </div>
           </div>
 
           {/* Orientações */}
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <div className="p-6 rounded-lg" style={{ backgroundColor: '#fdf2f8' }}>
-                <h4 className="font-semibold mb-4 text-lg" style={{ color: '#D1006F' }}>Dress Code Masculino:</h4>
-                <ul className="space-y-3 text-sm md:text-base" style={{ color: '#D1006F' }}>
-                  <li>• <strong>Terno:</strong> Preto</li>
-                  <li>• <strong>Camisa:</strong> Branca</li>
-                  <li>• <strong>Sapatos:</strong> Tênis ou sapatênis</li>
-                </ul>
-                <p className="mt-4 text-sm md:text-base" style={{ color: '#D1006F' }}>
-                  Não usaremos gravata, no dia entregaremos para vocês uma lapela da cor do vestido das madrinhas!
+          <div className="mt-16 p-8 rounded-lg border-l-4" style={{ backgroundColor: '#fdf2f8', borderLeftColor: '#D1006F' }}>
+            <div className="text-center">
+              <h4 className="font-display text-2xl font-semibold mb-6" style={{ color: '#D1006F' }}>
+                Dress Code Masculino
+              </h4>
+              <div className="max-w-4xl mx-auto">
+                <div className="space-y-4 text-lg leading-relaxed" style={{ color: '#D1006F' }}>
+                  <p><strong>Terno:</strong> Preto</p>
+                  <p><strong>Camisa:</strong> Branca</p>
+                  <p><strong>Sapatos:</strong> Tênis ou sapatênis</p>
+                </div>
+                <p className="mt-6 text-lg leading-relaxed" style={{ color: '#D1006F' }}>
+                  Não usaremos gravata, no dia entregaremos para vocês uma lapela da cor do vestido das madrinhas! 💕
                 </p>
               </div>
-
-
             </div>
           </div>
         </div>

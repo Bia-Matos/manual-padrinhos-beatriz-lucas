@@ -4,7 +4,7 @@ import { Heart, ChevronDown } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: '#F5F0E8' }}>
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: '#F5F0E8' }}>
       {/* Background Image - Only for Mobile */}
       <div className="absolute inset-0 lg:hidden">
         <Image

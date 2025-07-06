@@ -3,7 +3,7 @@ import { MapPin } from 'lucide-react'
 
 export default function ReceptionInfo() {
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
+    <section id="reception" className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
       <div className="container-max section-padding">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">

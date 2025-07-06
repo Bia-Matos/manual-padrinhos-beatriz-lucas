@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function WelcomeSection() {
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
+    <section id="welcome" className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
       <div className="container-max section-padding">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
