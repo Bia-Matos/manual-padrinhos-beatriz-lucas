@@ -13,27 +13,22 @@ export default function WelcomeSection() {
             
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
-                Vocês são pessoas muito especiais em nossas vidas, e não poderíamos 
-                imaginar nosso casamento sem a presença de cada um de vocês ao nosso lado.
+                Que alegria ter vocês conosco em um dos momentos mais especiais das nossas vidas!
+                Cada um de vocês tem um lugar único na nossa história, e é impossível imaginar esse dia sem sua presença e carinho ao nosso lado.
               </p>
               
               <p>
-                Como padrinhos e madrinhas, vocês são testemunhas do nosso amor e 
-                prometem nos apoiar nesta nova jornada que estamos começando juntos. 
-                É uma honra tê-los conosco neste momento tão importante.
+                Como padrinhos e madrinhas, vocês são testemunhas do nosso amor e prometem nos apoiar nesta nova jornada que estamos começando juntos. É uma honra tê-los conosco neste momento tão importante.
               </p>
               
               <p>
-                Este manual foi criado com muito carinho para que vocês tenham todas 
-                as informações necessárias sobre nosso grande dia. Esperamos que seja 
-                útil e que torne tudo ainda mais especial!
+                Criamos esse manual com muito amor para que vocês tenham todas as informações e se sintam ainda mais parte desse sonho! Esperamos que ele ajude vocês!
               </p>
             </div>
             
             <div className="p-6 rounded-lg border-l-4" style={{ backgroundColor: '#fdf2f8', borderLeftColor: '#D1006F' }}>
               <p className="italic" style={{ color: '#D1006F' }}>
-                "O valor das coisas não está no tempo que elas duram, mas na intensidade com que acontecem.
-                Por isso existem momentos inesquecíveis,coisas inexplicáveis e pessoas incomparáveis."
+                "O valor das coisas não está no tempo que elas duram, mas na intensidade com que acontecem. Por isso existem momentos inesquecíveis, coisas inexplicáveis e pessoas incomparáveis."
               </p>
             </div>
           </div>

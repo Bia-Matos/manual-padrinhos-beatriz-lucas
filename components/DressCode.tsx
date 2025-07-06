@@ -1,13 +1,67 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image'
-import { Palette, Users } from 'lucide-react'
+import { Palette, Users, ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function DressCode() {
+  const [currentCorrectIndex, setCurrentCorrectIndex] = React.useState(0)
+  const [currentWrongIndex, setCurrentWrongIndex] = React.useState(0)
+  const [currentGroomsIndex, setCurrentGroomsIndex] = React.useState(0)
+  const [touchStart, setTouchStart] = React.useState(0)
+  const [touchEnd, setTouchEnd] = React.useState(0)
+  
   const colorPalette = [
     { color: '#F24CA5' }, // Rosa claro
     { color: '#FF1493' }, // Rosa médio  
     { color: '#ED2A94' }, // Rosa escuro
   ]
+
+  const correctImages = [
+    { src: '/images/tom_certo1.jpg', alt: 'Tom correto 1' },
+    { src: '/images/tom_certo2.jpg', alt: 'Tom correto 2' },
+    { src: '/images/tom_certo3.webp', alt: 'Tom correto 3' },
+    { src: '/images/tom_correto4.jpeg', alt: 'Tom correto 4' },
+  ]
+
+  const wrongImages = [
+    { src: '/images/tom_errado.jpeg', alt: 'Tom incorreto 1' },
+    { src: '/images/tom_errado2.jpeg', alt: 'Tom incorreto 2' },
+    { src: '/images/tons_errados_3.jpg', alt: 'Tom incorreto 3' },
+    { src: '/images/tons_errados_4.jpg', alt: 'Tom incorreto 4' },
+  ]
+
+  const groomsImages = [
+    { src: '/images/padrinhos1.jpeg', alt: 'Look padrinho 1' },
+    { src: '/images/padrinhos2.jpeg', alt: 'Look padrinho 2' },
+    { src: '/images/padrinhos3.jpeg', alt: 'Look padrinho 3' },
+    { src: '/images/padrinhos4.jpeg', alt: 'Look padrinho 4' },
+  ]
+
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e: any) => {
+    setTouchEnd(0) // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: any) => setTouchEnd(e.targetTouches[0].clientX)
+
+  const handleSwipe = (images: any[], currentIndex: number, setCurrentIndex: any) => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      // Swipe left -> next image
+      setCurrentIndex((prev: number) => (prev === images.length - 1 ? 0 : prev + 1))
+    }
+    if (isRightSwipe) {
+      // Swipe right -> previous image
+      setCurrentIndex((prev: number) => (prev === 0 ? images.length - 1 : prev - 1))
+    }
+  }
 
   return (
     <section className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
@@ -60,48 +114,51 @@ export default function DressCode() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {correctImages.map((image, index) => (
+              <div key={index} className="relative group">
+                <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="md:hidden">
+            <div className="relative max-w-sm mx-auto">
+              <div 
+                className="relative h-96 rounded-lg overflow-hidden shadow-lg"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={() => handleSwipe(correctImages, currentCorrectIndex, setCurrentCorrectIndex)}
+              >
                 <Image
-                  src="/images/tom_certo1.jpg"
-                  alt="Tom correto 1"
+                  src={correctImages[currentCorrectIndex].src}
+                  alt={correctImages[currentCorrectIndex].alt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain"
                 />
               </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/tom_certo2.jpg"
-                  alt="Tom correto 2"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/tom_certo3.webp"
-                  alt="Tom correto 3"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/tom_correto4.jpeg"
-                  alt="Tom correto 4"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+              
+              {/* Indicators */}
+              <div className="flex justify-center mt-4 gap-2">
+                {correctImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentCorrectIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentCorrectIndex ? 'bg-pink-500' : 'bg-gray-300'
+                    }`}
+                    style={{ backgroundColor: index === currentCorrectIndex ? '#D1006F' : '#D1D5DB' }}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -118,48 +175,51 @@ export default function DressCode() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {wrongImages.map((image, index) => (
+              <div key={index} className="relative group">
+                <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="md:hidden">
+            <div className="relative max-w-sm mx-auto">
+              <div 
+                className="relative h-96 rounded-lg overflow-hidden shadow-lg"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={() => handleSwipe(wrongImages, currentWrongIndex, setCurrentWrongIndex)}
+              >
                 <Image
-                  src="/images/tom_errado.jpeg"
-                  alt="Tom incorreto 1"
+                  src={wrongImages[currentWrongIndex].src}
+                  alt={wrongImages[currentWrongIndex].alt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain"
                 />
               </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/tom_errado2.jpeg"
-                  alt="Tom incorreto 2"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/tons_errados_3.jpg"
-                  alt="Tom incorreto 3"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="relative group">
-              <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/tons_errados_4.jpg"
-                  alt="Tom incorreto 4"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+              
+              {/* Indicators */}
+              <div className="flex justify-center mt-4 gap-2">
+                {wrongImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentWrongIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentWrongIndex ? 'bg-pink-500' : 'bg-gray-300'
+                    }`}
+                    style={{ backgroundColor: index === currentWrongIndex ? '#D1006F' : '#D1D5DB' }}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -202,48 +262,53 @@ export default function DressCode() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-              <div className="relative group">
-                <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
+            {/* Desktop Grid */}
+            <div className="hidden md:grid grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {groomsImages.map((image, index) => (
+                <div key={index} className="relative group">
+                  <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className={`group-hover:scale-105 transition-transform duration-300 ${
+                        image.src.includes('padrinhos3') ? 'object-contain' : 'object-cover'
+                      }`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Carousel */}
+            <div className="md:hidden">
+              <div className="relative max-w-sm mx-auto">
+                <div 
+                  className="relative h-96 rounded-lg overflow-hidden shadow-lg"
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={() => handleSwipe(groomsImages, currentGroomsIndex, setCurrentGroomsIndex)}
+                >
                   <Image
-                    src="/images/padrinhos1.jpeg"
-                    alt="Look padrinho 1"
+                    src={groomsImages[currentGroomsIndex].src}
+                    alt={groomsImages[currentGroomsIndex].alt}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-contain"
                   />
                 </div>
-              </div>
-              
-              <div className="relative group">
-                <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/padrinhos2.jpeg"
-                    alt="Look padrinho 2"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              </div>
-              
-              <div className="relative group">
-                <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/padrinhos3.jpeg"
-                    alt="Look padrinho 3"
-                    fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              </div>
-              
-              <div className="relative group">
-                <div className="relative h-56 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/padrinhos4.jpeg"
-                    alt="Look padrinho 4"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                
+                {/* Indicators */}
+                <div className="flex justify-center mt-4 gap-2">
+                  {groomsImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentGroomsIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-colors ${
+                        index === currentGroomsIndex ? 'bg-pink-500' : 'bg-gray-300'
+                      }`}
+                      style={{ backgroundColor: index === currentGroomsIndex ? '#D1006F' : '#D1D5DB' }}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
