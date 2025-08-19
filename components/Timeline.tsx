@@ -1,5 +1,5 @@
 import React from 'react'
-import { Clock, Calendar, MapPin, Camera, Utensils, Music } from 'lucide-react'
+import { Clock, Calendar, MapPin, Camera, Utensils, Music, CalendarDays } from 'lucide-react'
 
 export default function Timeline() {
   const timelineEvents = [
@@ -70,16 +70,29 @@ export default function Timeline() {
   ]
 
   return (
-    <section className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
+    <section className="py-20 px-6" style={{ backgroundColor: '#FAF8E7' }}>
       <div className="container-max section-padding">
+        {/* Header Section */}
         <div className="text-center mb-16">
+          <div className="flex items-center justify-center mb-4">
+            <CalendarDays className="w-8 h-8" style={{ color: '#D1006F' }} />
+          </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             Cronograma do Dia
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Para que tudo transcorra perfeitamente, preparamos um cronograma detalhado 
-            com todos os momentos importantes do nosso grande dia.
-          </p>
+          <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: '#D1006F' }}></div>
+        </div>
+
+        {/* Introduction */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="text-center">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50">
+              <p className="font-body text-lg text-gray-700 leading-relaxed">
+                Para que tudo transcorra perfeitamente, preparamos um cronograma detalhado 
+                com todos os momentos importantes do nosso grande dia.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -110,13 +123,13 @@ export default function Timeline() {
                         </div>
                       </div>
                       
-                      <p className="text-gray-600 text-lg mb-3 leading-relaxed">
+                      <p className="font-body text-gray-600 text-lg mb-3 leading-relaxed">
                         {event.description}
                       </p>
                       
                       <div className="flex items-center text-gray-500">
                         <MapPin className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{event.location}</span>
+                        <span className="font-body text-sm">{event.location}</span>
                       </div>
                     </div>
                   </div>

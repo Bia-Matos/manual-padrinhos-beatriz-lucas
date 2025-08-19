@@ -1,9 +1,9 @@
-import { Heart, Calendar, MapPin, Mail, Phone } from 'lucide-react'
+import { Calendar, MapPin, Heart } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="relative py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
+    <footer className="relative py-16 px-6" style={{ backgroundColor: '#F8F5E8' }}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-10 -left-10 w-32 h-32 rounded-full opacity-10" style={{ backgroundColor: '#D1006F' }}></div>
@@ -31,7 +31,7 @@ export default function Footer() {
               <h3 className="font-display text-xl font-semibold text-gray-700">
                 Beatriz & Lucas
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="font-body text-gray-600 text-sm leading-relaxed">
                 Este manual foi feito com muito carinho para vocês. Esperamos que tenham 
                 todas as informações necessárias para nosso grande dia! 💕
               </p>
@@ -47,18 +47,15 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center justify-center md:justify-end space-x-3">
                 <Calendar className="w-4 h-4" style={{ color: '#D1006F' }} />
-                <span className="text-sm text-gray-600">26 de Abril de 2026</span>
+                <span className="font-body text-sm text-gray-600">26 de Abril de 2026</span>
               </div>
               
               <div className="flex items-center justify-center md:justify-end space-x-3">
                 <MapPin className="w-4 h-4" style={{ color: '#D1006F' }} />
-                <span className="text-sm text-gray-600">Igreja Boa Viagem</span>
+                <span className="font-body text-sm text-gray-600">Igreja Boa Viagem</span>
               </div>
               
-              <div className="flex items-center justify-center md:justify-end space-x-3">
-                <Heart className="w-4 h-4 fill-current" style={{ color: '#D1006F' }} />
-                <span className="text-sm text-gray-600">Celebração do Amor</span>
-              </div>
+
             </div>
           </div>
         </div>
@@ -75,8 +72,8 @@ export default function Footer() {
         {/* Final message */}
         <div className="text-center">
           <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 inline-block">
-            <p className="text-sm text-gray-600">
-              Com todo o nosso amor e carinho ❤️
+            <p className="font-body text-sm text-gray-600">
+              Com todo o nosso amor e carinho
             </p>
             <p className="font-display text-lg font-semibold mt-2" style={{ color: '#D1006F' }}>
               Beatriz & Lucas

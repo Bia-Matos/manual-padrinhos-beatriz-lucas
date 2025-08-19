@@ -45,11 +45,10 @@ export default function Header() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 relative group text-sm"
-                style={{ color: '#D1006F' }}
+                className="font-body text-gray-500 hover:text-pink-600 font-medium transition-colors duration-200 relative group text-sm uppercase"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{ backgroundColor: '#D1006F' }}></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-pink-600"></span>
               </button>
             ))}
           </nav>
@@ -75,8 +74,7 @@ export default function Header() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left py-2 px-3 rounded-md text-gray-700 hover:bg-white/20 font-medium transition-colors duration-200 text-sm"
-                  style={{ color: '#D1006F' }}
+                  className="font-body text-left py-2 px-3 rounded-md text-gray-500 hover:bg-white/20 hover:text-pink-600 font-medium transition-colors duration-200 text-sm uppercase"
                 >
                   {item.name}
                 </button>

@@ -4,7 +4,7 @@ import { Heart, ChevronDown } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: '#F5F0E8' }}>
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden" style={{ backgroundColor: '#FAF8E7' }}>
       {/* Background Image - Only for Mobile */}
       <div className="absolute inset-0 lg:hidden">
         <Image
@@ -14,7 +14,7 @@ export default function Hero() {
           className="object-cover object-center opacity-60"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#F5F0E8]/70 via-[#F5F0E8]/40 to-[#F5F0E8]/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8E7]/70 via-[#FAF8E7]/40 to-[#FAF8E7]/60"></div>
       </div>
       
       {/* Desktop Background - Original gradient */}
@@ -45,14 +45,14 @@ export default function Hero() {
             <div className="bg-white/30 backdrop-blur-md rounded-3xl p-8 shadow-xl border border-white/40 space-y-6">
               {/* Main Title */}
               <div className="space-y-1">
-                <h1 className="font-display text-3xl sm:text-4xl font-light text-gray-800 tracking-[0.1em] uppercase leading-tight">
-                  MANUAL
+                <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-gray-800 tracking-[0.1em] leading-tight" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>
+                  Manual
                 </h1>
-                <h2 className="font-display text-3xl sm:text-4xl font-light text-gray-800 tracking-[0.1em] uppercase leading-tight">
-                  DOS
+                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-gray-800 tracking-[0.1em] leading-tight" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>
+                  dos
                 </h2>
-                <h3 className="font-display text-3xl sm:text-4xl font-light text-gray-800 tracking-[0.1em] uppercase leading-tight">
-                  PADRINHOS
+                <h3 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-gray-800 tracking-[0.1em] leading-tight" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>
+                  Padrinhos
                 </h3>
               </div>
               
@@ -63,7 +63,7 @@ export default function Hero() {
               
               {/* Names in beautiful script */}
               <div className="text-center">
-                <p className="font-alex-brush text-3xl sm:text-4xl text-gray-700 tracking-wide leading-relaxed">
+                <p className="font-cursive text-gray-700 tracking-wide leading-relaxed" style={{ fontSize: '48px' }}>
                   Beatriz & Lucas
                 </p>
               </div>
@@ -85,14 +85,14 @@ export default function Hero() {
             <div className="lg:col-span-4 text-center space-y-6">
               {/* Main Title */}
               <div>
-                <h1 className="font-display text-4xl xl:text-5xl font-light text-gray-700 tracking-[0.1em] uppercase leading-[0.9] mb-3">
-                  MANUAL
+                <h1 className="font-display text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-700 tracking-[0.1em] leading-[0.9] mb-3" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>
+                  Manual
                 </h1>
-                <h2 className="font-display text-4xl xl:text-5xl font-light text-gray-700 tracking-[0.1em] uppercase leading-[0.9] mb-3">
-                  DOS
+                <h2 className="font-display text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-700 tracking-[0.1em] leading-[0.9] mb-3" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>
+                  dos
                 </h2>
-                <h3 className="font-display text-4xl xl:text-5xl font-light text-gray-700 tracking-[0.1em] uppercase leading-[0.9]">
-                  PADRINHOS
+                <h3 className="font-display text-5xl xl:text-6xl 2xl:text-7xl font-light text-gray-700 tracking-[0.1em] leading-[0.9]" style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}>
+                  Padrinhos
                 </h3>
               </div>
               
@@ -103,7 +103,7 @@ export default function Hero() {
               
               {/* Names in beautiful script */}
               <div className="text-center">
-                <p className="font-alex-brush text-4xl xl:text-5xl text-gray-600 tracking-wide leading-relaxed">
+                <p className="font-cursive text-gray-600 tracking-wide leading-relaxed" style={{ fontSize: '48px' }}>
                   Beatriz & Lucas
                 </p>
               </div>

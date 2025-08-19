@@ -15,9 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased text-gray-800" style={{ backgroundColor: '#F5F0E8' }}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-body antialiased text-gray-800" style={{ backgroundColor: '#F8F5E8', fontFamily: "'Inter', sans-serif" }}>
         <Header />
-        <div className="pt-20">
+        <div className="pt-16">
           {children}
         </div>
       </body>

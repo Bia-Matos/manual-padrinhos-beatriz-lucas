@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Alex+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap&v=1');
 
 @layer base {
   html {
@@ -13,16 +13,20 @@
     font-family: 'Inter', sans-serif;
   }
   
+  /* Font System Classes */
   .font-display {
     font-family: 'Playfair Display', serif;
+    font-weight: 500;
   }
 
   .font-cursive {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Mrs Saint Delafield', cursive !important;
+    font-weight: normal !important;
+    font-style: normal !important;
   }
 
-  .font-alex-brush {
-    font-family: 'Alex Brush', cursive;
+  .font-body {
+    font-family: 'Inter', sans-serif;
   }
 }
 

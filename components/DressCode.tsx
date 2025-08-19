@@ -31,20 +31,30 @@ export default function DressCode() {
   ]
 
   return (
-    <section id="dresscode" className="py-16 px-6" style={{ backgroundColor: '#F5F0E8' }}>
+    <section id="dresscode" className="py-20 px-6" style={{ backgroundColor: '#FAF8E7' }}>
       <div className="container-max section-padding">
+        {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <Users className="w-8 h-8 mr-3" style={{ color: '#D1006F' }} />
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800">
-              Queridas Madrinhas
-            </h2>
+          <div className="flex items-center justify-center mb-4">
+            <Users className="w-8 h-8" style={{ color: '#D1006F' }} />
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Vocês me conhecem bem e sabem que não poderia ser outra cor! 💕
-            Ver vocês vestidas com a minha cor preferida, no dia mais especial da minha vida, vai ser um presente enorme.
-            Tenho certeza de que cada uma ficará maravilhosa e que juntas vamos formar um cenário inesquecível!
-          </p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Queridas Madrinhas
+          </h2>
+          <div className="w-24 h-1 mx-auto rounded-full" style={{ backgroundColor: '#D1006F' }}></div>
+        </div>
+
+        {/* Introduction */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="text-center">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50">
+              <p className="font-body text-lg text-gray-700 leading-relaxed">
+                Vocês me conhecem bem e sabem que não poderia ser outra cor! 💕
+                Ver vocês vestidas com a minha cor preferida, no dia mais especial da minha vida, vai ser um presente enorme.
+                Tenho certeza de que cada uma ficará maravilhosa e que juntas vamos formar um cenário inesquecível!
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Color Palette */}
@@ -76,7 +86,7 @@ export default function DressCode() {
             <h3 className="font-display text-3xl font-semibold text-gray-800 mb-4">
               <span style={{ color: '#D1006F' }}>✓</span> Tons Certos
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="font-body text-lg text-gray-600">
               Estes são os tons ideais que combinam perfeitamente com nossa paleta!
             </p>
           </div>
@@ -125,7 +135,7 @@ export default function DressCode() {
             <h3 className="font-display text-3xl font-semibold text-gray-800 mb-4">
               <span style={{ color: '#D1006F' }}>✗</span> Tons Errados
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="font-body text-lg text-gray-600">
               Evitem tons muito escuros que fujam dessa vibe Barbie pink que amo! Também peço cuidado com rosas muito claros. Ah, e por favor: nada de lilás, roxo ou vermelho! 💗
             </p>
           </div>
@@ -174,7 +184,7 @@ export default function DressCode() {
             <h4 className="font-display text-2xl font-semibold mb-4" style={{ color: '#D1006F' }}>
               Atenção
             </h4>
-            <p className="text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#D1006F' }}>
+            <p className="font-body text-lg leading-relaxed max-w-4xl mx-auto" style={{ color: '#D1006F' }}>
               Madrinhas, se atentem porque a cerimônia vai acontecer na igreja, então cuidado com decotes e fendas muito grandes! Além disso, a festa é em um lugar super verde e ao ar livre, vestidos pesados e com muitas pedrarias podem não combinar tanto! Fora isso, fiquem à vontade para escolher o estilo do seu vestido! 💕
             </p>
           </div>
@@ -189,7 +199,7 @@ export default function DressCode() {
                 E os Padrinhos?
               </h2>
             </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="font-body text-xl text-gray-600 max-w-3xl mx-auto">
               Vocês também são fundamentais nesse dia! Aqui estão as orientações para que fiquem elegantes e alinhados com o estilo do casamento.
             </p>
           </div>
@@ -200,7 +210,7 @@ export default function DressCode() {
               <h3 className="font-display text-3xl font-semibold text-gray-800 mb-4">
                 <span style={{ color: '#D1006F' }}>👔</span> Looks Ideais
               </h3>
-              <p className="text-lg text-gray-600">
+              <p className="font-body text-lg text-gray-600">
                 Estes são os estilos que combinam perfeitamente com nossa cerimônia!
               </p>
             </div>
@@ -254,12 +264,12 @@ export default function DressCode() {
                 Dress Code Masculino
               </h4>
               <div className="max-w-4xl mx-auto">
-                <div className="space-y-4 text-lg leading-relaxed" style={{ color: '#D1006F' }}>
+                <div className="space-y-4 text-lg leading-relaxed font-body" style={{ color: '#D1006F' }}>
                   <p><strong>Terno:</strong> Preto</p>
                   <p><strong>Camisa:</strong> Branca</p>
                   <p><strong>Sapatos:</strong> Tênis ou sapatênis</p>
                 </div>
-                <p className="mt-6 text-lg leading-relaxed" style={{ color: '#D1006F' }}>
+                <p className="font-body mt-6 text-lg leading-relaxed" style={{ color: '#D1006F' }}>
                   Não usaremos gravata, no dia entregaremos para vocês uma lapela da cor do vestido das madrinhas! 💕
                 </p>
               </div>
